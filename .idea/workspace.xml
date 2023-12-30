@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50ec9e95-c879-49ce-afdd-62c17e737415" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Player.py" afterDir="false" />
+    <list default="true" id="50ec9e95-c879-49ce-afdd-62c17e737415" name="Changes" comment="Added &quot;Player&quot; class with basic methods to get player's name, score, set score, and print score.&#10;&#10;Main function now asks user how many players there are and creates an instance of each player (two users or one user and 'computer')">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,6 +76,14 @@
       <option name="presentableId" value="Default" />
       <updated>1703360475633</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added &quot;Player&quot; class with basic methods to get player's name, score, set score, and print score.&#10;&#10;Main function now asks user how many players there are and creates an instance of each player (two users or one user and 'computer')">
+      <created>1703953968428</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1703953968428</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -89,5 +96,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added &quot;Player&quot; class with basic methods to get player's name, score, set score, and print score.&#10;&#10;Main function now asks user how many players there are and creates an instance of each player (two users or one user and 'computer')" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added &quot;Player&quot; class with basic methods to get player's name, score, set score, and print score.&#10;&#10;Main function now asks user how many players there are and creates an instance of each player (two users or one user and 'computer')" />
   </component>
 </project>

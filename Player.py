@@ -13,4 +13,4 @@ class Player:
         return self.score
 
     def print_score(self):
-        print(str(self.name) + ": " + str(self.get_score()))
+        print(str(self.name) + "'s Score: " + str(self.get_score()))

@@ -96,6 +96,60 @@ def update_numbers(numbers, number_selection):
     numbers.remove(number_selection)
     return numbers
 
+def select_factors(player1, player2, number_selection, numbers, grid):
+    print(player1.get_name() + " chose " + str(number_selection) + ".")
+    print("")
+    print_grid(grid)
+    print("")
+
+    all_factors = find_factors(number_selection)
+    for element in all_factors:
+        if element not in numbers:
+            all_factors.remove(element)
+
+    found_all_factors = True
+
+    while all_factors:
+        factor_choice = int(input(player2.get_name() + ", can you find another factor of " + str(number_selection) + "? "))
+        if factor_choice in all_factors:
+            player2.set_score(factor_choice)
+            update_numbers(numbers, factor_choice)
+            update_grid(grid, str(factor_choice))
+            print("")
+            print("Great! " + str(factor_choice) + " is a factor of " + str(number_selection) +".")
+            print("")
+            print_grid(grid)
+            print("")
+            all_factors.remove(factor_choice)
+        elif factor_choice not in all_factors:
+            print("Sorry, " + str(factor_choice) + " is not a remaining factor of " + str(number_selection) + ".")
+            print("")
+            found_all_factors = False
+            break
+        elif factor_choice not in numbers:
+            print("You must choose a number on the game board.")
+
+    if found_all_factors:
+        print("There are no other factors of " + str(number_selection) + " remaining on the board.")
+        print("")
+
+
+def check_factor(factor_choice, number_selection, numbers):
+    if factor_choice in numbers and number_selection % factor_choice == 0:
+        return True
+    return False
+
+def find_factors(number_selection):
+    factors = []
+    for i in range(1, number_selection + 1):
+        if number_selection % i == 0:
+            factors.append(i)
+    return factors
+
+def is_prime(number_selection):
+    return len(find_factors(number_selection)) == 2
+
+
 #########################################################
 # Press the green button in the gutter to run the script.
 #########################################################
@@ -141,8 +195,10 @@ if __name__ == '__main__':
     print("A " + str(roll) + " was rolled.")
     if (player1_choice == "odd" and roll % 2 == 1) or player1_choice == "even" and roll % 2 == 0:
         print(player1.get_name() + " will go first!")
+        player1_turn = True
     else:
         print(player2.get_name() + " will go first!")
+        player1_turn = False
 
     print("")
 
@@ -153,18 +209,50 @@ if __name__ == '__main__':
 
     print("")
 
+    round = 0
+
     while numbers:
         print_grid(grid)
-        while True:
-            number_selection = int(input("Choose a number of the board: "))
+        print("")
+        if player1_turn:
+            while True:
+                number_selection = int(input(player1.get_name() + ", choose a number of the board: "))
+                if number_selection in numbers:
+                    grid = update_grid(grid, str(number_selection))
+                    numbers = update_numbers(numbers, int(number_selection))
+                    select_factors(player1, player2, number_selection, numbers, grid)
+                    print("")
+                    player1.set_score(number_selection)
+                    player1_turn = False
 
-            if number_selection in numbers:
-                grid = update_grid(grid, str(number_selection))
-                numbers = update_numbers(numbers, int(number_selection))
-                print("")
-                player1.set_score(number_selection)
-                player1.print_score()
-                break
+                    break
+        else:
+            while True:
+                number_selection = int(input(player2.get_name() + ", choose a number of the board: "))
+                if number_selection in numbers:
+                    grid = update_grid(grid, str(number_selection))
+                    numbers = update_numbers(numbers, int(number_selection))
+                    select_factors(player2, player1, number_selection, numbers, grid)
+                    print("")
+                    player2.set_score(number_selection)
+                    print("")
+                    player1_turn = True
+                    break
+
+        round += 1
+        print("###########################################")
+        print("Here are the scores after Round " + str(round) + ": ")
+        player1.print_score()
+        player2.print_score()
+        print("###########################################")
+        print("")
+
+
+
+
+
+
+
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
