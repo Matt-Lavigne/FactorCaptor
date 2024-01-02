@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50ec9e95-c879-49ce-afdd-62c17e737415" name="Changes" comment="Added &quot;Player&quot; class with basic methods to get player's name, score, set score, and print score.&#10;&#10;Main function now asks user how many players there are and creates an instance of each player (two users or one user and 'computer')">
+    <list default="true" id="50ec9e95-c879-49ce-afdd-62c17e737415" name="Changes" comment="Basic gameplay functionality works for two human players. When a player selects a number on the gameboard, the program determines all of the factors of that number and checks which of those factors are still present on the game board. The opposing player is prompted to identify the factors that remain on the board. The program correctly notifies the user if they have correctly selected a factor.">
+      <change afterPath="$PROJECT_DIR$/ComputerPlayer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Grid.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703953968428</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Basic gameplay functionality works for two human players. When a player selects a number on the gameboard, the program determines all of the factors of that number and checks which of those factors are still present on the game board. The opposing player is prompted to identify the factors that remain on the board. The program correctly notifies the user if they have correctly selected a factor.">
+      <created>1703967578397</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1703967578397</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -99,6 +107,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added &quot;Player&quot; class with basic methods to get player's name, score, set score, and print score.&#10;&#10;Main function now asks user how many players there are and creates an instance of each player (two users or one user and 'computer')" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added &quot;Player&quot; class with basic methods to get player's name, score, set score, and print score.&#10;&#10;Main function now asks user how many players there are and creates an instance of each player (two users or one user and 'computer')" />
+    <MESSAGE value="Basic gameplay functionality works for two human players. When a player selects a number on the gameboard, the program determines all of the factors of that number and checks which of those factors are still present on the game board. The opposing player is prompted to identify the factors that remain on the board. The program correctly notifies the user if they have correctly selected a factor." />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic gameplay functionality works for two human players. When a player selects a number on the gameboard, the program determines all of the factors of that number and checks which of those factors are still present on the game board. The opposing player is prompted to identify the factors that remain on the board. The program correctly notifies the user if they have correctly selected a factor." />
   </component>
 </project>

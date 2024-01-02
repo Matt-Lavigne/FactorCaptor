@@ -1,8 +1,10 @@
 import random
+
+from ComputerPlayer import ComputerPlayer
 from Player import Player
 
 ###############
-
+'''
 def get_grid(grid_selection):
     if (grid_selection == '1'):
         grid = [['1','2','2','2','2','2'],
@@ -149,6 +151,7 @@ def find_factors(number_selection):
 def is_prime(number_selection):
     return len(find_factors(number_selection)) == 2
 
+'''
 
 #########################################################
 # Press the green button in the gutter to run the script.
@@ -165,7 +168,7 @@ if __name__ == '__main__':
     if number_of_players == '1':
         name = str(input("What is your name? "))
         player1 = Player(name)
-        player2 = Player("Computer")
+        computer_player = ComputerPlayer()
     else:
         name1 = str(input("What is player 1's name? "))
         player1 = Player(name1)
@@ -210,34 +213,67 @@ if __name__ == '__main__':
     print("")
 
     round = 0
+    if number_of_players == 1:
+        while numbers:
+            print_grid(grid)
+            print("")
+            if player1_turn:
+                while True:
+                    number_selection = int(input(player1.get_name() + ", choose a number of the board: "))
+                    if number_selection in numbers:
+                        grid = update_grid(grid, str(number_selection))
+                        numbers = update_numbers(numbers, int(number_selection))
+                        all_factors = find_factors(number_selection)
+                        for element in all_factors:
+                            if element not in numbers:
+                                all_factors.remove(element)
+                        computer_factor_choice = computer_player.computer_find_factors(number_selection,numbers)
+                        while computer_factor_choice in all_factors:
+                            computer_player.set_score(computer_factor_choice)
+                            grid = update_grid(grid, str(computer_factor_choice))
+                            numbers = update_numbers(numbers, computer_factor_choice)
+                        player1_turn = False
+                        break
+            else:
+                while True:
+                    number_selection = int(input(player2.get_name() + ", choose a number of the board: "))
+                    if number_selection in numbers:
+                        grid = update_grid(grid, str(number_selection))
+                        numbers = update_numbers(numbers, int(number_selection))
+                        select_factors(player2, player1, number_selection, numbers, grid)
+                        print("")
+                        player2.set_score(number_selection)
+                        print("")
+                        player1_turn = True
+                        break
+    else:
+        while numbers:
+            print_grid(grid)
+            print("")
+            if player1_turn:
+                while True:
+                    number_selection = int(input(player1.get_name() + ", choose a number of the board: "))
+                    if number_selection in numbers:
+                        grid = update_grid(grid, str(number_selection))
+                        numbers = update_numbers(numbers, int(number_selection))
+                        select_factors(player1, player2, number_selection, numbers, grid)
+                        print("")
+                        player1.set_score(number_selection)
+                        player1_turn = False
 
-    while numbers:
-        print_grid(grid)
-        print("")
-        if player1_turn:
-            while True:
-                number_selection = int(input(player1.get_name() + ", choose a number of the board: "))
-                if number_selection in numbers:
-                    grid = update_grid(grid, str(number_selection))
-                    numbers = update_numbers(numbers, int(number_selection))
-                    select_factors(player1, player2, number_selection, numbers, grid)
-                    print("")
-                    player1.set_score(number_selection)
-                    player1_turn = False
-
-                    break
-        else:
-            while True:
-                number_selection = int(input(player2.get_name() + ", choose a number of the board: "))
-                if number_selection in numbers:
-                    grid = update_grid(grid, str(number_selection))
-                    numbers = update_numbers(numbers, int(number_selection))
-                    select_factors(player2, player1, number_selection, numbers, grid)
-                    print("")
-                    player2.set_score(number_selection)
-                    print("")
-                    player1_turn = True
-                    break
+                        break
+            else:
+                while True:
+                    number_selection = int(input(player2.get_name() + ", choose a number of the board: "))
+                    if number_selection in numbers:
+                        grid = update_grid(grid, str(number_selection))
+                        numbers = update_numbers(numbers, int(number_selection))
+                        select_factors(player2, player1, number_selection, numbers, grid)
+                        print("")
+                        player2.set_score(number_selection)
+                        print("")
+                        player1_turn = True
+                        break
 
         round += 1
         print("###########################################")
