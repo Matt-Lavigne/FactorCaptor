@@ -1,24 +1,31 @@
 import random
-from main import find_factors
+
+from Player import Player
+
+class ComputerPlayer(Player):
+    def __init__(self, name, score):
+        super().__init__(name, score)
+
+    def select_number(self):
+        """
+        Implementation of select_number for ComputerPlayer.
+        Represents the computer's action to randomly select a number.
+        """
+        selected_number = random.randint(1, 100)
+        print(f"{self.name} selected number: {selected_number}")
+        return selected_number
+
+    def select_factor(self):
+        """
+        Implementation of select_factor for ComputerPlayer.
+        Represents the computer's action to randomly select a factor.
+        """
+        selected_factor = random.choice([2, 3, 5, 7, 11])
+        print(f"{self.name} selected factor: {selected_factor}")
+        return selected_factor
 
 
-class ComputerPlayer:
-    def __init__(self, name):
-        self.name = "Albert"
-        self.score = 0
-
-    def get_name(self):
-        return self.name
-
-    def set_score(self, number):
-        self.score = self.score + number
-
-    def get_score(self):
-        return self.score
-
-    def print_score(self):
-        print(str(self.name) + "'s Score: " + str(self.get_score()))
-
+'''
     def computer_select_number(self, numbers):
         number_selection = random.choice(numbers)
         print("Albert selects " + str(number_selection))
@@ -39,3 +46,4 @@ class ComputerPlayer:
         print("Albert selects " + str(numbers[-1]))
         print("")
         return numbers[-1]
+'''

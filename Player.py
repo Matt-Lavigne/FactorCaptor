@@ -1,16 +1,38 @@
-class Player:
-    def __init__(self, name):
-        self.name = name
-        self.score = 0
+from abc import ABC, abstractmethod
 
-    def get_name(self):
-        return self.name
+class Player(ABC):
+    def __init__(self, name, score):
+        self._name = name
+        self._score = score
 
-    def set_score(self, number):
-        self.score = self.score + number
+    @property
+    def name(self):
+        return self._name
 
-    def get_score(self):
-        return self.score
+    @name.setter
+    def name(self, value):
+        self._name = value
 
-    def print_score(self):
-        print(str(self.name) + "'s Score: " + str(self.get_score()))
+    @property
+    def score(self):
+        return self._score
+
+    @score.setter
+    def score(self, value):
+        self._score = value
+
+    @abstractmethod
+    def select_number(self):
+        """
+        Abstract method to be implemented by subclasses.
+        Represents the player's action to select a number.
+        """
+        pass
+
+    @abstractmethod
+    def select_factor(self):
+        """
+        Abstract method to be implemented by subclasses.
+        Represents the player's action to select a factor.
+        """
+        pass

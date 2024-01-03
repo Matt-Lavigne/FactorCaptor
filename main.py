@@ -4,6 +4,8 @@ from ComputerPlayer import ComputerPlayer
 from Player import Player
 
 ###############
+
+
 '''
 def get_grid(grid_selection):
     if (grid_selection == '1'):
@@ -153,10 +155,48 @@ def is_prime(number_selection):
 
 '''
 
+
+def game_start():
+    print("Welcome to FACTOR CAPTOR")
+    print("")
+    while True:
+        number_of_players = input("How many players? (1 or 2) ")
+        if number_of_players == '1' or number_of_players == '2':
+            break
+    if number_of_players == '1':
+        name = str(input("What is your name? "))
+        player_one = Player(name)
+        player_two = ComputerPlayer()
+    else:
+        name1 = str(input("What is player 1's name? "))
+        player1 = Player(name1)
+        name2 = str(input("What is player 2's name? "))
+        player2 = Player(name2)
+    print("")
+
+def main():
+
 #########################################################
 # Press the green button in the gutter to run the script.
 #########################################################
 if __name__ == '__main__':
+
+    # Game Start Menu
+    #   Player vs Player or Player vs Computer?
+    #       Player Names?
+    #   Game board selection
+    #   Roll to see who goes first
+
+    # Player whose turn it is Selects Number on Game Board
+    # Opposing Player Selects Factors of Player 1's Number Available on Game Board
+    #   If Player 2 correctly selects a factor AND factors are still on game board:
+    #       Player 2 selects another factor
+    #   Else the turn Ends
+    # Round Ends and Score is Presented
+    # Loop until no numbers remain on game board
+
+    # Ending sequence
+
 
     print("Welcome to FACTOR CAPTOR")
     print("")
