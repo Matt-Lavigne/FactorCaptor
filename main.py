@@ -1,7 +1,10 @@
 import random
 
+from GameBoard import GameBoard
 from ComputerPlayer import ComputerPlayer
+from HumanPlayer import HumanPlayer
 from Player import Player
+
 
 ###############
 
@@ -154,39 +157,16 @@ def is_prime(number_selection):
     return len(find_factors(number_selection)) == 2
 
 '''
-
-
-def game_start():
-    print("Welcome to FACTOR CAPTOR")
-    print("")
-    while True:
-        number_of_players = input("How many players? (1 or 2) ")
-        if number_of_players == '1' or number_of_players == '2':
-            break
-    if number_of_players == '1':
-        name = str(input("What is your name? "))
-        player_one = Player(name)
-        player_two = ComputerPlayer()
-    else:
-        name1 = str(input("What is player 1's name? "))
-        player1 = Player(name1)
-        name2 = str(input("What is player 2's name? "))
-        player2 = Player(name2)
-    print("")
-
 def main():
 
-#########################################################
-# Press the green button in the gutter to run the script.
-#########################################################
-if __name__ == '__main__':
-
+    ### Game Overview ###
+    #
     # Game Start Menu
     #   Player vs Player or Player vs Computer?
     #       Player Names?
     #   Game board selection
     #   Roll to see who goes first
-
+    #
     # Player whose turn it is Selects Number on Game Board
     # Opposing Player Selects Factors of Player 1's Number Available on Game Board
     #   If Player 2 correctly selects a factor AND factors are still on game board:
@@ -194,63 +174,103 @@ if __name__ == '__main__':
     #   Else the turn Ends
     # Round Ends and Score is Presented
     # Loop until no numbers remain on game board
-
+    #
     # Ending sequence
+    #####################
+
+    print("Welcome to Factor Captor!")
+
+    # Get player_one's name
+    player_one_name = input("Enter your name, player one: ")
+    player_one = HumanPlayer(player_one_name)
+
+    # Choose opponent: another person or computer
+    opponent_choice = input(f"{player_one.name}, do you want to play against another person or the computer? "
+                            f"Enter 'person' or 'computer': ")
+
+    if opponent_choice.lower() == 'person':
+        player_two_name = input("Enter the name for player two: ")
+        player_two = HumanPlayer(player_two_name)
+    elif opponent_choice.lower() == 'computer':
+        player_two = ComputerPlayer()
+    else:
+        print("Invalid choice. Exiting the game.")
+        return
+
+    # Choose game board: 1, 2, or 3
+    board_choice = input("Choose a game board (enter 1, 2, or 3): ")
+
+    # Create GameBoard based on user's input
+    game_board = GameBoard(board_choice)
+
+    print(f"{player_one.name()} vs {player_two.name()}! Let the game begin with Game Board {board_choice}!")
+
+    # Determine who goes first by rolling a dice
+    player_one_odd_even_choice = input(f"Let's roll the dice to see who will go first! {player_one.name()}, "
+                                       f"choose odd or even: ").lower()
+    print("Rolling...")
+    dice_roll = random.randint(1, 6)
+    print(f"The dice has rolled: {dice_roll}")
+
+    if (dice_roll % 2 == 0 and player_one_odd_even_choice == 'even') or \
+            (dice_roll % 2 != 0 and player_one_odd_even_choice == 'odd'):
+        print(f"{player_one.name()} goes first!")
+        current_player, next_player = player_one, player_two
+    else:
+        print(f"{player_two.name()} goes first!")
+        current_player, next_player = player_two, player_one
+
+    # Start the game loop
+    round = 0
+    while game_board.numbers:
+        # current_player's turn
+        selected_number = current_player.select_number(game_board)
+        current_player.score(selected_number)
+
+        print(f"{current_player.get_name()} selected number {selected_number}. Score: {current_player.score}")
+
+        # next_player's turn
+        factor_selected = None
+        while factor_selected is None:
+            factor_selected = next_player.select_factor(game_board, selected_number)
+
+            if factor_selected is not None:
+                print(f"{next_player.get_name()} selected factor {factor_selected}.")
+                game_board.remove(factor_selected)
+
+        # print end-of-round scores
+        round += 1
+        print("###########################################")
+        print(f"Here are the scores after Round {round}: ")
+        player_one.print_score()
+        player_two.print_score()
+        print("###########################################")
+        print("")
+
+        # Switch players for the next turn
+        current_player, next_player = next_player, current_player
+
+    # Game over, determine the winner
+    if player_one.score > player_two.score:
+        print(f"{player_one.get_name()} wins with a score of {player_one.score}!")
+    elif player_two.score > player_one.score:
+        print(f"{player_two.get_name()} wins with a score of {player_two.score}!")
+    else:
+        print("It's a tie!")
+
+
+
+#########################################################
+# Press the green button in the gutter to run the script.
+#########################################################
+if __name__ == '__main__':
+
+
 
 
     print("Welcome to FACTOR CAPTOR")
     print("")
 
-    while True:
-        number_of_players = input("How many players? (1 or 2) ")
-        if number_of_players == '1' or number_of_players == '2':
-            break
-    if number_of_players == '1':
-        name = str(input("What is your name? "))
-        player1 = Player(name)
-        computer_player = ComputerPlayer()
-    else:
-        name1 = str(input("What is player 1's name? "))
-        player1 = Player(name1)
-        name2 = str(input("What is player 2's name? "))
-        player2 = Player(name2)
-
-    print("")
-
-    grid_selection = input("Welcome " + player1.get_name() +
-                           " and " + player2.get_name() + ". Select your game board. Enter 1, 2, or 3: ")
-    numbers = get_numbers(grid_selection)
-    grid = get_grid(grid_selection)
-    if (int(grid_selection) > 0 and int(grid_selection) < 4):
-        print("Great! You've selected game board " + str(grid_selection) + ".")
-
-    print("")
-
-    while True:
-        player1_choice = input("Alright, let's roll to see who will go first. " + player1.get_name()
-                               + ", choose odd or even? ")
-        if player1_choice == "odd" or player1_choice == "even":
-            break
-    print("Okay, " + player1.get_name() + " chose " + player1_choice + ".")
-    print("Let's roll!")
-    print("Rolling...")
-    roll = random.randint(1,6)
-    print("A " + str(roll) + " was rolled.")
-    if (player1_choice == "odd" and roll % 2 == 1) or player1_choice == "even" and roll % 2 == 0:
-        print(player1.get_name() + " will go first!")
-        player1_turn = True
-    else:
-        print(player2.get_name() + " will go first!")
-        player1_turn = False
-
-    print("")
-
-    while True:
-        game_on = input("Let's play! (Press return to continue)")
-        if game_on ==  '' or game_on == '\r' or game_on == '\n':
-            break
-
-    print("")
 
     round = 0
     if number_of_players == 1:
@@ -315,13 +335,7 @@ if __name__ == '__main__':
                         player1_turn = True
                         break
 
-        round += 1
-        print("###########################################")
-        print("Here are the scores after Round " + str(round) + ": ")
-        player1.print_score()
-        player2.print_score()
-        print("###########################################")
-        print("")
+
 
 
 

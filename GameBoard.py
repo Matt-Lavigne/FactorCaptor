@@ -1,11 +1,11 @@
-class Grid:
-    def __init__(self, grid_choice):
-        self.grid_choice = grid_choice
+class GameBoard:
+    def __init__(self, game_board_choice):
+        self.game_board_choice = game_board_choice
         self.game_board = self.get_game_board()
-        self.numbers = self.get_numbers(grid_choice)
+        self.numbers = self.get_numbers()
 
     def get_game_board(self):
-        if self.grid_choice == '1':
+        if self.game_board_choice == '1':
             game_board = [['1', '2', '2', '2', '2', '2'],
                     ['2', '3', '3', '3', '3', '3'],
                     ['3', '4', '4', '4', '4', '5'],
@@ -15,7 +15,7 @@ class Grid:
                     ['16', '18', '20', '21', '22', '24'],
                     ['25', '26', '27', '28', '30', '32']]
             return game_board
-        if self.grid_choice == '2':
+        if self.game_board_choice == '2':
             game_board = [['1', '2', '2', '2', '2', '2', '3'],
                     ['3', '3', '3', '3', '4', '4', '4'],
                     ['4', '5', '5', '5', '5', '6', '6'],
@@ -27,7 +27,7 @@ class Grid:
                     ['40', '42', '44', '45', '46', '48', '49'],
                     ['50', '51', '52', '54', '55', '56', '60']]
             return game_board
-        if self.grid_choice == '3':
+        if self.game_board_choice == '3':
             game_board = [['1', '2', '2', '2', '2', '2', '3', '3'],
                     ['3', '3', '3', '3', '4', '4', '4', '4'],
                     ['4', '5', '5', '5', '5', '6', '6', '6'],
@@ -50,17 +50,17 @@ class Grid:
                 game_board.append(row)
             return game_board
 
-    def get_numbers(grid_choice):
-        if (grid_choice == '1'):
+    def get_numbers(self):
+        if self == '1':
             numbers = [1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9,
                        10, 10, 11, 12, 13, 14, 15, 16, 18, 20, 21, 22, 24, 25, 26, 27, 28, 30, 32]
             return numbers
-        if (grid_choice == '2'):
+        if self == '2':
             numbers = [1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9,
                        10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 30,
                        32, 33, 34, 35, 36, 38, 39, 40, 42, 44, 45, 46, 48, 49, 50, 51, 52, 54, 55, 56, 60]
             return numbers
-        if (grid_choice == '3'):
+        if self == '3':
             numbers = [1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9,
                        10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 30, 32, 33, 34,
                        35, 36, 38, 39, 40, 42, 44, 45, 46, 48, 49, 50, 51, 52, 54, 55, 56, 60, 62, 64, 65, 66, 68, 70,
@@ -95,6 +95,9 @@ class Grid:
     def update_numbers(self, number_selection):
         self.numbers.remove(number_selection)
 
+
+
+    '''''
     def select_factors(player1, player2, number_selection, numbers, grid):
         print(player1.get_name() + " chose " + str(number_selection) + ".")
         print("")
@@ -132,6 +135,7 @@ class Grid:
         if found_all_factors:
             print("There are no other factors of " + str(number_selection) + " remaining on the board.")
             print("")
+    '''
 
     def check_factor(factor_choice, number_selection, numbers):
         if factor_choice in numbers and number_selection % factor_choice == 0:
@@ -146,5 +150,5 @@ class Grid:
         return factors
 
     def is_prime(number_selection):
-        return len(find_factors(number_selection)) == 2
+        return len(number_selection.find_factors(number_selection)) == 2
 
