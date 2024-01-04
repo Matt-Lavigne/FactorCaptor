@@ -22,7 +22,7 @@ class Player(ABC):
         self._score = value
 
     @abstractmethod
-    def select_number(self):
+    def select_number(self, game_board):
         """
         Abstract method to be implemented by subclasses.
         Represents the player's action to select a number.
@@ -30,7 +30,7 @@ class Player(ABC):
         pass
 
     @abstractmethod
-    def select_factor(self):
+    def select_factor(self, game_board, selected_number):
         """
         Abstract method to be implemented by subclasses.
         Represents the player's action to select a factor.
