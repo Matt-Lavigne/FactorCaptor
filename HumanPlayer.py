@@ -3,8 +3,8 @@ from GameBoard import GameBoard
 from HelperFunctions import HelperFunctions
 
 class HumanPlayer(Player):
-    def __init__(self, name, score):
-        super().__init__(name, score)
+    def __init__(self, name):
+        super().__init__(name)
 
     def select_number(self, game_board):
         """
@@ -15,7 +15,7 @@ class HumanPlayer(Player):
             selected_number = int(input(f"{self.name}, enter a number on the game board: "))
             if selected_number in game_board.numbers:
                 print(f"{self.name} selected {selected_number}.")
-                self.score(selected_number)
+                self.increase_score(int(selected_number))
                 game_board.update_game_board(selected_number)
                 game_board.update_numbers(selected_number)
                 game_board.print_game_board()
@@ -38,7 +38,7 @@ class HumanPlayer(Player):
             if selected_factor in factors:
                 print(f"{self.name} selected {selected_factor}.")
                 print(f"Great! {selected_factor} is a factor of {selected_number}.")
-                self.score(selected_factor)
+                self.increase_score(int(selected_factor))
                 game_board.update_game_board(selected_factor)
                 game_board.update_numbers(selected_factor)
                 game_board.print_game_board()

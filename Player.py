@@ -1,9 +1,10 @@
 from abc import ABC, abstractmethod
 
+
 class Player(ABC):
-    def __init__(self, name, score):
+    def __init__(self, name):
         self._name = name
-        self._score = score
+        self._score = 0
 
     @property
     def name(self):
@@ -21,6 +22,9 @@ class Player(ABC):
     def score(self, value):
         self._score = value
 
+    def increase_score(self, value):
+        self.score += value
+
     @abstractmethod
     def select_number(self, game_board):
         """
@@ -36,3 +40,7 @@ class Player(ABC):
         Represents the player's action to select a factor.
         """
         pass
+
+    # same for all subclasses
+    def print_score(self):
+        print(f"{self.name}"f's Score: {self.score}')
