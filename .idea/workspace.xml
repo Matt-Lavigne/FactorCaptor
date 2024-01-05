@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50ec9e95-c879-49ce-afdd-62c17e737415" name="Changes" comment="Version 1 of the game Factor Captor is fully implemented.">
+    <list default="true" id="50ec9e95-c879-49ce-afdd-62c17e737415" name="Changes" comment="Added static HelperFunction continue_game() which requires the user to press 'return' in order to continue the game. The function also prints a blank line, making the program's output easier to read.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ComputerPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ComputerPlayer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameBoard.py" beforeDir="false" afterPath="$PROJECT_DIR$/GameBoard.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HelperFunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelperFunctions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumanPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumanPlayer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -135,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704428240221</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added static HelperFunction continue_game() which requires the user to press 'return' in order to continue the game. The function also prints a blank line, making the program's output easier to read.">
+      <created>1704485276078</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1704485276078</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -158,6 +164,7 @@
     <MESSAGE value="Implemented select_number and select_factor methods in HumanPlayer class." />
     <MESSAGE value="All classes implemented.&#10;Bugs:&#10;1. Instances of GameBoard are not updating after a number is selected. When a number on the board is selected, it should be replaced with 'X'.&#10;2. When an instance of HumanPlayer is selecting a factor, the list of remaining factors is not properly updating." />
     <MESSAGE value="Version 1 of the game Factor Captor is fully implemented." />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 1 of the game Factor Captor is fully implemented." />
+    <MESSAGE value="Added static HelperFunction continue_game() which requires the user to press 'return' in order to continue the game. The function also prints a blank line, making the program's output easier to read." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added static HelperFunction continue_game() which requires the user to press 'return' in order to continue the game. The function also prints a blank line, making the program's output easier to read." />
   </component>
 </project>

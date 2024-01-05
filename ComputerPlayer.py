@@ -5,26 +5,39 @@ from Player import Player
 
 
 class ComputerPlayer(Player):
-    def __init__(self, name):
-        super().__init__(name)
+
+    DIFFICULTY_LEVELS = {
+        "1": "Fermat",
+        "2": "Eratosthenes"
+    }
+
+    def __init__(self, difficulty_level):
+        super().__init__(self.DIFFICULTY_LEVELS.get(difficulty_level, "Computer"))
+        self.difficulty_level = difficulty_level
 
     def select_number(self, game_board):
         """
         Implementation of select_number for ComputerPlayer.
         Represents the computer's action to randomly select a number.
         """
-        selected_number = random.choice(game_board.numbers)
-        print(f"{self.name} selected number: {selected_number}")
-        while True:
-            continue_game = input("(press return to continue)")
-            if continue_game == "":
-                break
-        print("")
-        self.increase_score(int(selected_number))
-        game_board.update_game_board(selected_number)
-        game_board.update_numbers(selected_number)
-        game_board.print_game_board()
-        return selected_number
+        if self.difficulty_level == "1":
+            selected_number = random.choice(game_board.numbers)
+            print(f"{self.name} selected number: {selected_number}")
+            HelperFunctions.continue_game()
+            self.increase_score(int(selected_number))
+            game_board.update_game_board(selected_number)
+            game_board.update_numbers(selected_number)
+            game_board.print_game_board()
+            return selected_number
+        else:
+            selected_number = HelperFunctions.max_score_number(game_board.numbers)
+            print(f"{self.name} selected number: {selected_number}")
+            HelperFunctions.continue_game()
+            self.increase_score(int(selected_number))
+            game_board.update_game_board(selected_number)
+            game_board.update_numbers(selected_number)
+            game_board.print_game_board()
+            return selected_number
 
     def select_factors(self, game_board, selected_number):
         """

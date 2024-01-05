@@ -34,7 +34,7 @@ class HumanPlayer(Player):
             factors = HelperFunctions.remaining_factors(selected_number, game_board.numbers)
             while True:
                 if len(factors) == 0:
-                    print(f"There are no remaining factors of {selected_number} on the game baord.")
+                    print(f"There are no remaining factors of {selected_number} on the game board.")
                     HelperFunctions.continue_game()
                     break
                 selected_factor = int(input(f"{self.name}, enter a factor: "))

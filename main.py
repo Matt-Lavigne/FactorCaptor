@@ -43,7 +43,11 @@ def main():
         player_two_name = input("Enter the name for player two: ")
         player_two = HumanPlayer(player_two_name)
     elif opponent_choice.lower() == 'computer':
-        player_two = ComputerPlayer("Computer")
+        difficulty_level = input("Choose your computer opponent: \n"
+                                 "\tEnter 1 to play Fermat (normal)\n"
+                                 "\tEnter 2 to play Eratosthenes (difficult)\n"
+                                 "Choice: ")
+        player_two = ComputerPlayer(difficulty_level)
     else:
         print("Invalid choice. Exiting the game.")
         return
