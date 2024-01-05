@@ -9,7 +9,7 @@ class HelperFunctions:
 
     def remaining_factors(number, numbers):
         factors = HelperFunctions.get_factors(number)
-        for element in factors:
+        for element in factors.copy():
             if element not in numbers:
                 factors.remove(element)
         return factors

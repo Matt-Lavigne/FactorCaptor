@@ -78,9 +78,7 @@ def main():
         # print(f"{current_player.get_name()} selected number {selected_number}. Score: {current_player.score}")
 
         # next_player's turn
-        factor_selected = True
-        while factor_selected:
-            factor_selected = next_player.select_factor(game_board, selected_number)
+        next_player.select_factors(game_board, selected_number)
 
         # print end-of-round scores
         round += 1

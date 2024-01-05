@@ -34,7 +34,7 @@ class Player(ABC):
         pass
 
     @abstractmethod
-    def select_factor(self, game_board, selected_number):
+    def select_factors(self, game_board, selected_number):
         """
         Abstract method to be implemented by subclasses.
         Represents the player's action to select a factor.

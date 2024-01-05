@@ -51,16 +51,16 @@ class GameBoard:
             return game_board
 
     def get_numbers(self):
-        if self == '1':
+        if self.game_board_choice == '1':
             numbers = [1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9,
                        10, 10, 11, 12, 13, 14, 15, 16, 18, 20, 21, 22, 24, 25, 26, 27, 28, 30, 32]
             return numbers
-        if self == '2':
+        if self.game_board_choice == '2':
             numbers = [1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9,
                        10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 30,
                        32, 33, 34, 35, 36, 38, 39, 40, 42, 44, 45, 46, 48, 49, 50, 51, 52, 54, 55, 56, 60]
             return numbers
-        if self == '3':
+        if self.game_board_choice == '3':
             numbers = [1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 8, 8, 8, 9, 9,
                        10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 30, 32, 33, 34,
                        35, 36, 38, 39, 40, 42, 44, 45, 46, 48, 49, 50, 51, 52, 54, 55, 56, 60, 62, 64, 65, 66, 68, 70,
@@ -82,6 +82,7 @@ class GameBoard:
             print()
 
     def update_game_board(self, number_selection):
+        number_selection = str(number_selection)
         found = False
         for i in range(len(self.game_board)):
             for j in range(len(self.game_board[0])):
