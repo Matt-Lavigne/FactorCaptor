@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50ec9e95-c879-49ce-afdd-62c17e737415" name="Changes" comment="All classes implemented.&#10;Bugs:&#10;1. Instances of GameBoard are not updating after a number is selected. When a number on the board is selected, it should be replaced with 'X'.&#10;2. When an instance of HumanPlayer is selecting a factor, the list of remaining factors is not properly updating.">
+    <list default="true" id="50ec9e95-c879-49ce-afdd-62c17e737415" name="Changes" comment="Version 1 of the game Factor Captor is fully implemented.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ComputerPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ComputerPlayer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameBoard.py" beforeDir="false" afterPath="$PROJECT_DIR$/GameBoard.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HelperFunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelperFunctions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumanPlayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumanPlayer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704402043242</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Version 1 of the game Factor Captor is fully implemented.">
+      <created>1704428240221</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1704428240221</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -151,6 +157,7 @@
     <MESSAGE value="Renamed &quot;Grid&quot; class to &quot;GameBoard&quot;.&#10;Added to main() in main. main() now creates an instance of the GameBoard class based on user input. main() also determines which player will go first and begins the game loop. &#10;The GameBoard methods, HumanPlayer methods and ComputerPlayer methods still need to be implemented." />
     <MESSAGE value="Implemented select_number and select_factor methods in HumanPlayer class." />
     <MESSAGE value="All classes implemented.&#10;Bugs:&#10;1. Instances of GameBoard are not updating after a number is selected. When a number on the board is selected, it should be replaced with 'X'.&#10;2. When an instance of HumanPlayer is selecting a factor, the list of remaining factors is not properly updating." />
-    <option name="LAST_COMMIT_MESSAGE" value="All classes implemented.&#10;Bugs:&#10;1. Instances of GameBoard are not updating after a number is selected. When a number on the board is selected, it should be replaced with 'X'.&#10;2. When an instance of HumanPlayer is selecting a factor, the list of remaining factors is not properly updating." />
+    <MESSAGE value="Version 1 of the game Factor Captor is fully implemented." />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 1 of the game Factor Captor is fully implemented." />
   </component>
 </project>

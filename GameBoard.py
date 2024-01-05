@@ -80,6 +80,7 @@ class GameBoard:
                 # print(str(element).rjust(max_width), end=" ")
                 print("{:<4}".format(element), end=" ")
             print()
+        print("")
 
     def update_game_board(self, number_selection):
         number_selection = str(number_selection)

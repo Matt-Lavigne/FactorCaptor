@@ -15,6 +15,7 @@ class HumanPlayer(Player):
             selected_number = int(input(f"{self.name}, enter a number on the game board: "))
             if selected_number in game_board.numbers:
                 print(f"{self.name} selected {selected_number}.")
+                HelperFunctions.continue_game()
                 game_board.update_game_board(selected_number)
                 self.increase_score(selected_number)
                 game_board.update_numbers(selected_number)
@@ -34,11 +35,13 @@ class HumanPlayer(Player):
             while True:
                 if len(factors) == 0:
                     print(f"There are no remaining factors of {selected_number} on the game baord.")
+                    HelperFunctions.continue_game()
                     break
                 selected_factor = int(input(f"{self.name}, enter a factor: "))
                 if selected_factor in factors:
                     print(f"{self.name} selected {selected_factor}.")
                     print(f"Great! {selected_factor} is a factor of {selected_number}.")
+                    HelperFunctions.continue_game()
                     game_board.update_game_board(selected_factor)
                     self.increase_score(int(selected_factor))
                     game_board.update_numbers(int(selected_factor))
@@ -46,6 +49,7 @@ class HumanPlayer(Player):
                     factors.remove(selected_factor)
                 else:
                     print(f"Sorry {self.name}, {selected_factor} is not a remaining factor of {selected_number}.")
+                    HelperFunctions.continue_game()
                     break
         except ValueError:
             print("Invalid input. Please enter a valid factor.")

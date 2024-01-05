@@ -3,6 +3,7 @@ import random
 from GameBoard import GameBoard
 from ComputerPlayer import ComputerPlayer
 from HumanPlayer import HumanPlayer
+from HelperFunctions import HelperFunctions
 
     ### Game Overview ###
     #
@@ -25,7 +26,10 @@ from HumanPlayer import HumanPlayer
 
 def main():
 
-    print("Welcome to Factor Captor!")
+    print("#########################")
+    print("Welcome to FACTOR CAPTOR!")
+    print("#########################")
+    HelperFunctions.continue_game()
 
     # Get player_one's name
     player_one_name = input("Enter your name, player one: ")
@@ -44,6 +48,8 @@ def main():
         print("Invalid choice. Exiting the game.")
         return
 
+    print("")
+
     # Choose game board: 1, 2, or 3
     board_choice = input("Choose a game board (enter 1, 2, or 3): ")
 
@@ -52,10 +58,13 @@ def main():
 
     print(f"{player_one.name} vs {player_two.name}! Let the game begin with Game Board {board_choice}!")
 
+    HelperFunctions.continue_game()
+
     # Determine who goes first by rolling a die
     player_one_odd_even_choice = input(f"Let's roll the dice to see who will go first! {player_one.name}, "
                                        f"choose odd or even: ").lower()
     print("Rolling...")
+    HelperFunctions.continue_game()
     dice_roll = random.randint(1, 6)
     print(f"The dice has rolled: {dice_roll}")
 
@@ -66,6 +75,8 @@ def main():
     else:
         print(f"{player_two.name} goes first!")
         current_player, next_player = player_two, player_one
+
+    HelperFunctions.continue_game()
 
     # Start the game loop
     round = 0
@@ -91,6 +102,8 @@ def main():
 
         # Switch players for the next turn
         current_player, next_player = next_player, current_player
+
+        HelperFunctions.continue_game()
 
     # Game over, determine the winner
     if player_one.score > player_two.score:

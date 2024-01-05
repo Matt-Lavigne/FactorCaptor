@@ -14,4 +14,12 @@ class HelperFunctions:
                 factors.remove(element)
         return factors
 
+    @staticmethod
+    def continue_game():
+        while True:
+            continue_game = input("(press return to continue)")
+            if continue_game == "":
+                print("")
+                break
+
 
