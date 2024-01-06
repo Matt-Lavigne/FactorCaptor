@@ -1,5 +1,4 @@
 import random
-
 from GameBoard import GameBoard
 from ComputerPlayer import ComputerPlayer
 from HumanPlayer import HumanPlayer
@@ -24,12 +23,42 @@ from HelperFunctions import HelperFunctions
     # Ending sequence
     #####################
 
+def print_instructions():
+    print("")
+    print("Factor Captor is a turn-based number game where players strategically select numbers on a game board and \n"
+          "accumulate points by choosing factors, competing against either another player or a computer opponent.")
+    HelperFunctions.continue_game()
+    print("When prompted: \n"
+          "1. Choose between Player vs Player or Player vs Computer modes.\n"
+          "2. Input player names and select opponents.\n"
+          "3. Pick a game board from three options.\n"
+          "4. Roll a die to determine the starting player.")
+    HelperFunctions.continue_game()
+    print("How to play: \n"
+          "- Players take turns selecting a number on the game board.\n"
+          "- The number that the player selects is added to their score. \n"
+          "- The opposing player then selects factors of the chosen number to accumulate points. \n"
+          "- If the factor selection is correct and factors remain on the board, the turn continues; \n "
+          "otherwise, it ends.\n"
+          "- Rounds conclude with a score presentation.")
+    HelperFunctions.continue_game()
+    print("How to win: \n"
+          "- The game continues in rounds until no numbers remain on the board.\n"
+          "- The player with the highest accumulated score wins.")
+    HelperFunctions.continue_game()
+    print("Now you're ready to play Factor Captor!")
+    HelperFunctions.continue_game()
+
 def main():
 
     print("#########################")
     print("Welcome to FACTOR CAPTOR!")
     print("#########################")
     HelperFunctions.continue_game()
+
+    read_instructions = input("Would you like to read the instructions before getting started? (Enter 'yes' or 'no'): ")
+    if read_instructions.lower() == 'yes':
+        print_instructions()
 
     # Get player_one's name
     player_one_name = input("Enter your name, player one: ")
@@ -110,12 +139,14 @@ def main():
         HelperFunctions.continue_game()
 
     # Game over, determine the winner
+    print("###########################################")
     if player_one.score > player_two.score:
-        print(f"{player_one.name} wins with a score of {player_one.score}!")
+        print(f"{player_one.name} wins with a score of {player_one.score}!".upper())
     elif player_two.score > player_one.score:
-        print(f"{player_two.name} wins with a score of {player_two.score}!")
+        print(f"{player_two.name} wins with a score of {player_two.score}!".upper())
     else:
         print("It's a tie!")
+    print("###########################################")
 
 
 #########################################################
